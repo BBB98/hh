@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleof.org">
+<head>
+    <title>??</title>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen"/>
+</head>
+<div class="container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1>Films</h1>
+
+                <form class="form-horizontal" th:action="@{/kino/{id}/actors(id=${kino.id})}"
+                      method="post" enctype="multipart/form-data">
+
+                    <form class="form-horizontal" th:action="@{/kino/{id}/rejissers(id=${kino.id})}"
+                          method="post" enctype="multipart/form-data">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Name</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" disabled="disabled"
+                                th:value="${kino.name}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Strana</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" disabled="disabled"
+                                       th:value="${kino.strana}"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Zhanr</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" disabled="disabled"
+                                       th:value="${kino.zhanr}"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">God</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" disabled="disabled"
+                                       th:value="${kino.god}"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Actors</label>
+                            <div class="col-lg-10">
+                                <div th:each="actor: ${kino.actors}">
+                                    <span th:text="${actor.name}"/> - <span th:text="${actor.surname}"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-6 col-lg-offset-2">
+                                <div class="input-group">
+                                    <select name="actorId" class="form-control">
+                                        <option th:each="actor : ${actors}"
+                                                th:value="${actor.id}"
+                                                th:text="${actor.surname}">Actor</option>
+                                    </select>
+                                    <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default">Add actor</button>
+                                    </span>
+                                </div>
+
+
+                                <div class="input-group">
+                                    <select name="rejisserId" class="form-control">
+                                        <option th:each="rejisser : ${rejissers}"
+                                                th:value="${rejisser.id}"
+                                                th:text="${rejisser.surname}">Rejisser</option>
+                                    </select>
+                                    <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default">Add rejisser</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+                </form>
+                </form>
+            </div>
+        </div>
+     </div>
+</div>
+</body>
+</html>

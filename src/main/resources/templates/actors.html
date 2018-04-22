@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleof.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="form-group">
+            <form action="#" th:action="@{/actors/}" th:object="${actor}" method="post">
+                <label form="label">Name</label>
+                <input type="text" id="name" name="name" th:field="*{name}"
+                       class="form-control" placeholder="Actor's name"/>
+                <label for="surname">Surname</label>
+                <input type="text" id="surname" name="surname" th:field="*{surname}"
+                       class="form-control" placeholder="Actor's surname"/>
+                <br/>
+                <button type="submit" class="btn btn-primary">Сақтау</button>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
